@@ -7,7 +7,6 @@ import time
 import cv2
 from playsound import playsound
 ap = argparse.ArgumentParser()
-ap.add_argument("-v", "--video", help="path to the video file")
 ap.add_argument("-a", "--min-area", type=int, default=500, help="minimum area size")
 ap.add_argument("-x", "--alarm", type=str,help="do you wanna enable alarms, diabled by default")
 args = vars(ap.parse_args())
@@ -17,7 +16,6 @@ if args.get("video", None) is None:
 firstFrame = None
 while True:
 	frame = vs.read()
-	frame = frame if args.get("video", None) is None else frame[1]
 	text = "Unoccupied"
 	if frame is None:
 		break
